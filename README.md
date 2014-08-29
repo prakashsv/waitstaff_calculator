@@ -1,4 +1,4 @@
-
+http://prakashsv.github.io/waitstaff_calculator/
 
 Create a new repository on the command line
 
