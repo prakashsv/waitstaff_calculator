@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>Waiter Earnings Calculator</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.css">
+</head>
+<body>
+    <div ng-controller="MealDetailsCtrl">
+
+        <div class="row">
+            <h1>Waitstaff Calculator</h1>
+        </div>
+        
+        <div class="row" data-equalizer>
+          <div class="large-6 offset-1 columns panel" data-equalizer-watch>
+            <h3>Enter the Meal Details</h3><hr>
+            <form name="mealForm" ng-submit="submitForm()" novalidate>
+                <div class="row">
+                    <span class="large-5 columns">Base Meal Price: $ </span>
+                    <span class="large-7 columns"><input type="number" ng-model="data.mealprice" name="mealprice" required></span>
+                </div>
+                <div class="row">
+                    <span class="large-5 columns">Tax Rate: % </span>
+                    <span class="large-7 columns"><input type="number" ng-model="data.taxrate" name="taxrate" required></span>
+                </div>
+                <div class="row">
+                    <span class="large-5 columns">Tip Percentage: $ </span>
+                    <span class="large-7 columns">
+                        <input type="number" ng-model="data.tippercentage" name="tippercentage" required>
+                    </span>
+                </div>
+                
+                <input class="small button" type="submit" value="Submit">
+                <input class="small button" type="button" value="Cancel" ng-click="cancel()">
+
+                <!-- <br>
+                <pre>
+                    {{mealForm.$valid | json}}    
+                </pre>
+                <pre>
+                    {{mealForm.mealprice.$valid | json}}    
+                </pre> -->
+                
+            </form>  
+          </div>
+          <div class="large-5 columns" data-equalizer-watch>
+            <div class="panel">
+                <h3>Customer Charges</h3><hr>
+                <div class="row">
+                    <span class="large-5 columns">Subtotal </span>
+                    <span class="large-7 columns">{{data.subtotal}}</span>
+                </div>
+                <div class="row">
+                    <span class="large-5 columns">Tip </span>
+                    <span class="large-7 columns">{{data.tip}}</span>
+                </div>
+                <div class="row"><hr></div>
+                <div class="row">
+                    <span class="large-5 columns">Total </span>
+                    <span class="large-7 columns">{{data.total}}</span>
+                </div>
+            </div>  
+            <div class="row"></div>
+            <div class="panel">
+                <h3>My Earnings Info</h3><hr>
+                <div class="row">
+                    <span class="large-7 columns">Tip Total </span>
+                    <span class="large-5 columns">{{earnings.tiptotal}}</span>
+                </div>
+                <div class="row">
+                    <span class="large-7 columns">Meal Count </span>
+                    <span class="large-5 columns">{{earnings.mealcount}}</span>
+                </div>
+                <div class="row">
+                    <span class="large-7 columns">Average Tip Per Meal </span>
+                    <span class="large-5 columns">{{earnings.averagetip}}</span>
+                </div>
+            </div>  
+          </div>
+        </div>
+
+        
+    </div>    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/js/vendor/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/js/foundation/foundation.equalizer.min.js"></script>    
+    <script src="./js/myApp.js"></script> 
+</body>
+</html>
